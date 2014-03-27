@@ -1,5 +1,8 @@
 require 'uri'
 
+require_relative './default_mappings.rb'
+require_relative './custom_mappings.rb'
+
 HOME_URL = 'http://chocoby.jp'
 BLOG_URL = 'http://chocoby.jp/blog/'
 
@@ -88,9 +91,6 @@ def redirect_blog_article(uri)
   path = uri.path.split('/')
   path.shift
   path.shift
-
-  require_relative './default_mappings.rb'
-  require_relative './custom_mappings.rb'
 
   mappings = {}
   mappings.merge! default_mappings
