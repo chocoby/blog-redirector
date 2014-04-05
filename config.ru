@@ -9,7 +9,7 @@ BLOG_URL = 'http://chocoby.jp/blog/'
 run lambda { |env|
   request = Rack::Request.new(env)
 
-  uri = URI.parse request.env['REQUEST_URI']
+  uri = URI.parse "http://#{request.env['SERVER_NAME']}#{request.env['REQUEST_URI']}"
 
   type = redirect_type(uri)
 
